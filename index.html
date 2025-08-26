@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FiftyBit-ResearchRadar</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Configure Tailwind CSS to use the 'class' strategy for dark mode
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -22,6 +28,9 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+        html.dark .card:hover {
+             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+        }
         .modal {
             transition: opacity 0.25s ease;
         }
@@ -30,37 +39,45 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
 
-    <header class="bg-white shadow-md sticky top-0 z-20">
+    <header class="bg-white shadow-md sticky top-0 z-20 dark:bg-gray-800 dark:border-b dark:border-gray-700">
         <nav class="container mx-auto px-6 py-3">
             <div class="flex items-center justify-between">
-                <a href="#" class="text-2xl font-bold text-gray-900">FiftyBit-ResearchRadar</a>
+                <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white">FiftyBit-ResearchRadar</a>
                 
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="https://topmate.io/fiftybit/1695698" target="_blank" class="text-gray-600 hover:text-indigo-600 transition">SOP</a>
-                    <a href="https://topmate.io/fiftybit/1695698" target="_blank" class="text-gray-600 hover:text-indigo-600 transition">Resume</a>
-                    <button data-modal-target="aboutModal" class="text-gray-600 hover:text-indigo-600 transition">About Us</button>
-                    <button data-modal-target="contactModal" class="text-gray-600 hover:text-indigo-600 transition">Contact Us</button>
-                    <button data-modal-target="privacyModal" class="text-gray-600 hover:text-indigo-600 transition">Privacy Policy</button>
-                    <button class="bg-amber-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-600 transition duration-300" onclick="window.location.href='https://topmate.io/fiftybit/1695698';">
+                    <a href="https://topmate.io/fiftybit/1695698" target="_blank" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition">SOP</a>
+                    <a href="https://topmate.io/fiftybit/1695698" target="_blank" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition">Resume</a>
+                    <button data-modal-target="aboutModal" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition">About Us</button>
+                    <button data-modal-target="contactModal" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition">Contact Us</button>
+                    <button data-modal-target="privacyModal" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition">Privacy Policy</button>
+                    <button class="bg-amber-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-600 transition duration-300">
                         Donate
+                    </button>
+                    <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                     </button>
                 </div>
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-600 hover:text-indigo-600 focus:outline-none">
+                <div class="md:hidden flex items-center space-x-2">
+                     <button id="theme-toggle-mobile" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600">
+                        <svg id="theme-toggle-dark-icon-mobile" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon-mobile" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
                 </div>
             </div>
 
             <div id="mobile-menu" class="hidden md:hidden mt-4">
-                <a href="https://topmate.io/fiftybit/1695698" target="_blank" class="block py-2 text-gray-600 hover:text-indigo-600">SOP</a>
-                <a href="https://topmate.io/fiftybit/1695698" target="_blank" class="block py-2 text-gray-600 hover:text-indigo-600">Resume</a>
-                <button data-modal-target="aboutModal" class="block w-full text-left py-2 text-gray-600 hover:text-indigo-600">About Us</button>
-                <button data-modal-target="contactModal" class="block w-full text-left py-2 text-gray-600 hover:text-indigo-600">Contact Us</button>
-                <button data-modal-target="privacyModal" class="block w-full text-left py-2 text-gray-600 hover:text-indigo-600">Privacy Policy</button>
+                <a href="https://topmate.io/fiftybit/1695698" target="_blank" class="block py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">SOP</a>
+                <a href="https://topmate.io/fiftybit/1695698" target="_blank" class="block py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Resume</a>
+                <button data-modal-target="aboutModal" class="block w-full text-left py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">About Us</button>
+                <button data-modal-target="contactModal" class="block w-full text-left py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Contact Us</button>
+                <button data-modal-target="privacyModal" class="block w-full text-left py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Privacy Policy</button>
                 <button class="w-full mt-2 bg-amber-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-600 transition duration-300" onclick="window.location.href='https://topmate.io/fiftybit/1695698';">
                     Donate
                 </button>
@@ -69,10 +86,10 @@
     </header>
 
     <div class="container mx-auto px-6 pt-6">
-        <div class="bg-gray-800 text-white rounded-lg p-8 text-center shadow-lg">
+        <div class="bg-gray-800 text-white dark:bg-gray-700 rounded-lg p-8 text-center shadow-lg">
             <h2 class="text-2xl font-bold mb-2">This Project is Open Source!</h2>
             <p class="mb-4">Help us keep this list up-to-date by contributing on GitHub. It's easy to add new opportunities.</p>
-            <a href="https://github.com/sobit-nep/fiftybit-researchradar" target="_blank" class="bg-white text-gray-800 font-bold py-2 px-6 rounded-lg hover:bg-gray-200 transition duration-300 inline-flex items-center">
+            <a href="https://github.com/sobit-nep/fiftybit-researchradar" target="_blank" class="bg-white text-gray-800 font-bold py-2 px-6 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-300 transition duration-300 inline-flex items-center">
                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                 Contribute on GitHub
             </a>
@@ -84,45 +101,45 @@
         <main class="w-full lg:w-3/4">
             <div class="mb-8">
                 <input type="text" id="searchInput" placeholder="Search by university, faculty, or research interest..."
-                       class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out">
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400">
             </div>
             <div id="cardContainer" class="card-container"></div>
             <div id="noResultsMessage" class="hidden text-center py-12">
-                <h2 class="text-2xl font-semibold text-gray-700">No Results Found</h2>
-                <p class="text-gray-500 mt-2">Try adjusting your search terms.</p>
+                <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-300">No Results Found</h2>
+                <p class="text-gray-500 dark:text-gray-400 mt-2">Try adjusting your search terms.</p>
             </div>
         </main>
 
         <aside class="w-full lg:w-1/4">
             <div class="sticky top-24">
-                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-                    <h3 class="text-xl font-bold mb-4">Stay Updated</h3>
-                    <p class="text-gray-600 mb-4">Join our newsletter for the latest research openings.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-6 dark:bg-gray-800">
+                    <h3 class="text-xl font-bold mb-4 dark:text-white">Stay Updated</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Join our newsletter for the latest research openings.</p>
                     <form id="newsletterForm">
                         <input type="email" id="newsletterEmail" placeholder="your.email@example.com"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            required>
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
+                               required>
                         <button type="submit" id="newsletterSubmit"
-                            class="w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-600 transition duration-300">
+                                class="w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-600 transition duration-300">
                             Subscribe
                         </button>
                     </form>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-4">Featured University</h3>
-                    <div class="border-t pt-4">
-                        <h4 class="font-semibold text-lg">Stanford University</h4>
-                        <p class="text-gray-600 text-sm">AI & Robotics Lab</p>
+                <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                    <h3 class="text-xl font-bold mb-4 dark:text-white">Featured University</h3>
+                    <div class="border-t pt-4 dark:border-gray-700">
+                        <h4 class="font-semibold text-lg dark:text-white">Stanford University</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">AI & Robotics Lab</p>
                         <a href="#" class="text-indigo-500 hover:underline mt-2 inline-block font-semibold">View
                             Openings &rarr;</a>
                     </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md mt-6">
-                    <h3 class="text-sm font-bold mb-2 text-gray-500 uppercase tracking-wider">Advertisement</h3>
-                    <div class="border-t pt-4 text-center bg-gray-100 rounded-md p-4">
-                        <p class="text-gray-600">Place Your Ad Here</p>
+                <div class="bg-white p-6 rounded-lg shadow-md mt-6 dark:bg-gray-800">
+                    <h3 class="text-sm font-bold mb-2 text-gray-500 dark:text-gray-400 uppercase tracking-wider">Advertisement</h3>
+                    <div class="border-t pt-4 text-center bg-gray-100 dark:bg-gray-700 rounded-md p-4 dark:border-gray-700">
+                        <p class="text-gray-600 dark:text-gray-300">Place Your Ad Here</p>
                         <a href="mailto:fiftybit69@gmail.com"
-                            class="text-indigo-500 hover:underline mt-2 inline-block font-semibold text-sm">
+                           class="text-indigo-500 hover:underline mt-2 inline-block font-semibold text-sm">
                             Advertise with Us &rarr;
                         </a>
                     </div>
@@ -131,8 +148,8 @@
         </aside>
     </div>
 
-    <footer class="bg-white mt-12 py-8">
-        <div class="container mx-auto px-6 text-center text-gray-500">
+    <footer class="bg-white mt-12 py-8 dark:bg-gray-800">
+        <div class="container mx-auto px-6 text-center text-gray-500 dark:text-gray-400">
             <div class="flex justify-center space-x-6 mb-4">
                 <button data-modal-target="aboutModal" class="hover:underline">About Us</button>
                 <button data-modal-target="contactModal" class="hover:underline">Contact Us</button>
@@ -143,26 +160,26 @@
     </footer>
 
     <div id="aboutModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-30 hidden opacity-0">
-        <div class="modal-content bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full transform scale-95">
-            <h2 class="text-2xl font-bold mb-4">About Us</h2>
-            <p class="text-gray-600 mb-4">FiftyBit-ResearchRadar is dedicated to connecting aspiring students with leading research opportunities worldwide. Our mission is to simplify the search for PhD and internship positions, fostering academic growth and innovation.</p>
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-2xl w-full transform scale-95">
+            <h2 class="text-2xl font-bold mb-4 dark:text-white">About Us</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">FiftyBit-ResearchRadar is dedicated to connecting aspiring students with leading research opportunities worldwide. Our mission is to simplify the search for PhD and internship positions, fostering academic growth and innovation.</p>
             <button class="modal-close bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600">Close</button>
         </div>
     </div>
 
     <div id="contactModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-30 hidden opacity-0">
-        <div class="modal-content bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full transform scale-95">
-            <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
-            <p class="text-gray-600 mb-4">Have questions or feedback? We'd love to hear from you. Please reach out to us at <a href="mailto:contact@fiftybit.com" class="text-indigo-600">contact@fiftybit.com</a>.</p>
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-2xl w-full transform scale-95">
+            <h2 class="text-2xl font-bold mb-4 dark:text-white">Contact Us</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Have questions or feedback? We'd love to hear from you. Please reach out to us at <a href="mailto:contact@fiftybit.com" class="text-indigo-600 dark:text-indigo-400">contact@fiftybit.com</a>.</p>
             <button class="modal-close bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600">Close</button>
         </div>
     </div>
 
     <div id="privacyModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-30 hidden opacity-0">
-        <div class="modal-content bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full transform scale-95">
-            <h2 class="text-2xl font-bold mb-4">Privacy Policy</h2>
-            <p class="text-gray-600 mb-2">Your privacy is important to us. At FiftyBit-ResearchRadar, we are committed to protecting your personal information.</p>
-            <p class="text-gray-600 mb-4">We collect information you provide, such as your email for the newsletter, and usage data to improve our service. We do not sell your personal data to third parties.</p>
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-2xl w-full transform scale-95">
+            <h2 class="text-2xl font-bold mb-4 dark:text-white">Privacy Policy</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-2">Your privacy is important to us. At FiftyBit-ResearchRadar, we are committed to protecting your personal information.</p>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">We collect information you provide, such as your email for the newsletter, and usage data to improve our service. We do not sell your personal data to third parties.</p>
             <button class="modal-close bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600">Close</button>
         </div>
     </div>
@@ -173,6 +190,36 @@
             const cardContainer = document.getElementById('cardContainer');
             const searchInput = document.getElementById('searchInput');
             const noResultsMessage = document.getElementById('noResultsMessage');
+
+            // --- Theme Toggling Logic ---
+            const themeToggleBtns = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+            
+            const updateIcons = (isDarkMode) => {
+                document.getElementById('theme-toggle-dark-icon').classList.toggle('hidden', !isDarkMode);
+                document.getElementById('theme-toggle-light-icon').classList.toggle('hidden', isDarkMode);
+                document.getElementById('theme-toggle-dark-icon-mobile').classList.toggle('hidden', !isDarkMode);
+                document.getElementById('theme-toggle-light-icon-mobile').classList.toggle('hidden', isDarkMode);
+            };
+
+            const toggleTheme = () => {
+                const isDarkMode = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                updateIcons(isDarkMode);
+            };
+
+            themeToggleBtns.forEach(btn => btn.addEventListener('click', toggleTheme));
+
+            // Set initial theme based on localStorage or system preference
+            const preferredTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (preferredTheme === 'dark' || (!preferredTheme && systemPrefersDark)) {
+                document.documentElement.classList.add('dark');
+                updateIcons(true);
+            } else {
+                document.documentElement.classList.remove('dark');
+                updateIcons(false);
+            }
+
 
             // Fetch data from the external JSON file
             fetch('data.json')
@@ -194,21 +241,22 @@
 
             function createCard(opportunity) {
                 const card = document.createElement('div');
-                card.className = 'card bg-white rounded-lg shadow-lg overflow-hidden p-6 flex flex-col';
+                // Added dark mode classes for cards
+                card.className = 'card bg-white dark:bg-gray-800 dark:border dark:border-gray-700 rounded-lg shadow-lg overflow-hidden p-6 flex flex-col';
                 let email = opportunity['How to Reach out'] || '';
                 if (email && !email.includes('@')) email = '';
 
                 card.innerHTML = `
-                    <h2 class="text-xl font-bold text-gray-900 mb-2">${opportunity.University}</h2>
-                    <h3 class="text-lg font-semibold text-indigo-600 mb-3">${opportunity.Faculty}</h3>
-                    <p class="text-gray-600 mb-4 flex-grow"><strong>Interests:</strong> ${opportunity['Research Interests']}</p>
-                    <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-500 mb-4">
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2">${opportunity.University}</h2>
+                    <h3 class="text-lg font-semibold text-indigo-600 dark:text-indigo-400 mb-3">${opportunity.Faculty}</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow"><strong>Interests:</strong> ${opportunity['Research Interests']}</p>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
                         <p><strong>Openings:</strong> ${opportunity.Positions || 'N/A'}</p>
                         <p><strong>Term:</strong> ${opportunity.Notes || 'N/A'}</p>
                         <p class="col-span-2"><strong>Requirements:</strong> ${opportunity.Requirements || 'N/A'}</p>
                     </div>
-                    <div class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center">
-                        <a href="${opportunity.Homepage}" target="_blank" class="text-indigo-500 hover:text-indigo-700 font-semibold transition">Homepage</a>
+                    <div class="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                        <a href="${opportunity.Homepage}" target="_blank" class="text-indigo-500 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold transition">Homepage</a>
                         ${email ? `<a href="mailto:${email}" class="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 transition text-sm font-medium">Contact</a>` : ''}
                     </div>
                 `;
@@ -299,6 +347,3 @@
     </script>
 </body>
 </html>
-
-
-
