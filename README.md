@@ -6,7 +6,7 @@ Welcome to **FiftyBit-ResearchRadar**, an open-source platform dedicated to help
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### ✨ [**View the Live Project Here!**](https://researchradar.netlify.app/)
+### ✨ [**View the Live Project Here!**](https://www.fiftybitresearchradar.info/)
 
 ---
 
