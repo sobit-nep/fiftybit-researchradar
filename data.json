@@ -44,7 +44,7 @@
         "Faculty": "Shan Lin",
         "Research Interests": "AI + Robotics, Surgical Robotics, Medical Devices",
         "Notes": "25 Spring/Fall",
-        "Homepage": "Shan Lin",
+        "Homepage": "",
         "Positions": "3 PhDs, interns",
         "Requirements": "",
         "How to Reach out": "shanlin0331@gmail.com"
@@ -934,7 +934,7 @@
         "Faculty": "Dianbo Liu",
         "Research Interests": "AI scientist, creativity of LLM",
         "Notes": "2026 Spring / Fall",
-        "Homepage": "www.cogAI4Sci.com",
+        "Homepage": "https://www.cogAI4Sci.com",
         "Positions": "4 PhD , 1 postdoc, 4 RAs/interns",
         "Requirements": "TOEFL or IELTS, no GRE",
         "How to Reach out": "dianbo@nus.edu.sg"
@@ -944,7 +944,7 @@
         "Faculty": "Jiaheng Zhang",
         "Research Interests": "Blockchain and crypto, LLM security and privacy, applied cryptography, ZKP.",
         "Notes": "25 Spring / 25 Fall / 26 Spring",
-        "Homepage": "zjhzjh123.github.io",
+        "Homepage": "https://zjhzjh123.github.io",
         "Positions": "Fellowship/RA",
         "Requirements": "TOEFL/IELTS",
         "How to Reach out": "jiahengzhang.recruit@gmail.com"
@@ -1144,7 +1144,7 @@
         "Faculty": "Manling Li",
         "Research Interests": "AI/ML, Multimodal Foundation Models, NLP, CV, Robotics",
         "Notes": "26 Fall",
-        "Homepage": "limanling.github.io",
+        "Homepage": "https://limanling.github.io",
         "Positions": "Multiple PhDs/interns",
         "Requirements": "",
         "How to Reach out": "limanling.ai@gmail.com"
@@ -1154,7 +1154,7 @@
         "Faculty": "Ruohan Zhang",
         "Research Interests": "Robotics, robot learning, cognitive science, human-robot interaction, perception, art",
         "Notes": "26 Fall",
-        "Homepage": "ai.stanford.edu/~zharu",
+        "Homepage": "https://ai.stanford.edu/~zharu",
         "Positions": "Multiple PhDs/interns",
         "Requirements": "",
         "How to Reach out": "zharu@stanford.edu"
@@ -1424,7 +1424,7 @@
         "Faculty": "Linyi Li",
         "Research Interests": "Trustworthy ML and ML Security, LLM Theory",
         "Notes": "2026 Spring / Fall",
-        "Homepage": "linyil.com",
+        "Homepage": "https://linyil.com",
         "Positions": "2 PHDs with RAs",
         "Requirements": "TOEFL or IELTS, no GRE requirement",
         "How to Reach out": "linyi_li@sfu.ca"
@@ -1495,9 +1495,9 @@
         "Research Interests": "Machine Learning, Graph Learning, AI for Health, Natural Language Processing",
         "Notes": "",
         "Homepage": "",
-        "Positions": "",
+        "Positions": "MS/PhDs",
         "Requirements": "",
-        "How to Reach out": ""
+        "How to Reach out": "University website"
     },
     {
         "University": "Stony Brook University",
@@ -2754,7 +2754,7 @@
         "Faculty": "Guanhong Tao",
         "Research Interests": "ML security/privacy, ML for cybersecurity",
         "Notes": "2025 Spring / Fall",
-        "Homepage": "tao.aisec.world",
+        "Homepage": "https://tao.aisec.world",
         "Positions": "1 PhD RA",
         "Requirements": "TOEFL/IELTS/Duolingo, no GRE requirement",
         "How to Reach out": "guanhong.tao@utah.edu"
@@ -2794,7 +2794,7 @@
         "Faculty": "Qizhe Cai",
         "Research Interests": "Operating System, Networking",
         "Notes": "2025 fall",
-        "Homepage": "www.qizhecai.com",
+        "Homepage": "https://www.qizhecai.com",
         "Positions": "2 PhD with RA/TA",
         "Requirements": "TOEFL or IELTS, no GRE.",
         "How to Reach out": ""
